@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: const Center(
-        child: Text('miguelmor'),
+        child: Text('miguelmor no seas asi'),
       ),
     );
   }
