@@ -18,6 +18,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     myColor = Theme.of(context).primaryColor;
     mediaSize = MediaQuery.of(context).size;
+
     return Container(
       decoration: BoxDecoration(
         color: myColor,
@@ -25,14 +26,14 @@ class _LoginPageState extends State<LoginPage> {
           image: const AssetImage("assets/images/bg.jpg"),
           fit: BoxFit.cover,
           colorFilter:
-              ColorFilter.mode(myColor.withOpacity(0.2), BlendMode.dstATop),
+              ColorFilter.mode(myColor.withOpacity(0.3), BlendMode.dstATop),
         ),
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Stack(children: [
           Positioned(top: 80, child: _buildTop()),
-          Positioned(bottom: 0, child: _buildBottom()),
+          Positioned(bottom: -10, child: _buildBottom()),
         ]),
       ),
     );
@@ -52,10 +53,11 @@ class _LoginPageState extends State<LoginPage> {
           Text(
             "SUSHI",
             style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-                fontSize: 40,
-                letterSpacing: 2),
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+              fontSize: 40,
+              letterSpacing: 2,
+            ),
           )
         ],
       ),
@@ -64,12 +66,12 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget _buildBottom() {
     return SizedBox(
-      width: mediaSize.width,
+      width: MediaQuery.of(context).size.width,
       child: Card(
         shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(30),
-          topRight: Radius.circular(30),
+          topLeft: Radius.circular(45),
+          topRight: Radius.circular(45),
         )),
         child: Padding(
           padding: const EdgeInsets.all(32.0),
@@ -86,7 +88,10 @@ class _LoginPageState extends State<LoginPage> {
         Text(
           "Welcome",
           style: TextStyle(
-              color: myColor, fontSize: 32, fontWeight: FontWeight.w500),
+            color: myColor,
+            fontSize: 32,
+            fontWeight: FontWeight.w500,
+          ),
         ),
         _buildGreyText("Please login with your information"),
         const SizedBox(height: 60),
@@ -158,6 +163,7 @@ class _LoginPageState extends State<LoginPage> {
         elevation: 20,
         shadowColor: myColor,
         minimumSize: const Size.fromHeight(60),
+        backgroundColor: const Color.fromARGB(255, 76, 0, 255),
       ),
       child: const Text("LOGIN"),
     );
@@ -173,9 +179,10 @@ class _LoginPageState extends State<LoginPage> {
             // Lógica para iniciar sesión con Google aquí
           },
           style: ElevatedButton.styleFrom(
+            elevation: 10,
             backgroundColor: Colors.white,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20.0),
+              borderRadius: BorderRadius.circular(40),
             ),
           ),
           child: Padding(
