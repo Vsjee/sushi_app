@@ -179,9 +179,10 @@ class _LoginPageState extends State<LoginPage> {
             // Lógica para iniciar sesión con Google aquí
           },
           style: ElevatedButton.styleFrom(
+            elevation: 10,
             backgroundColor: Colors.white,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20.0),
+              borderRadius: BorderRadius.circular(40),
             ),
           ),
           child: Padding(
