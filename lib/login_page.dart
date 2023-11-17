@@ -22,7 +22,7 @@ class _LoginPageState extends State<LoginPage> {
       decoration: BoxDecoration(
         color: myColor,
         image: DecorationImage(
-          image: const AssetImage("assets/imagenes/bg.jpg"),
+          image: const AssetImage("assets/images/bg.jpg"),
           fit: BoxFit.cover,
           colorFilter:
               ColorFilter.mode(myColor.withOpacity(0.2), BlendMode.dstATop),
@@ -117,7 +117,9 @@ class _LoginPageState extends State<LoginPage> {
     return TextField(
       controller: controller,
       decoration: InputDecoration(
-        suffixIcon: isPassword ? Icon(Icons.remove_red_eye) : Icon(Icons.done),
+        suffixIcon: isPassword
+            ? const Icon(Icons.remove_red_eye)
+            : const Icon(Icons.done),
       ),
       obscureText: isPassword,
     );
@@ -161,47 +163,39 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
- Widget _buildOtherLogin() {
-  return Column(
-    children: [
-      _buildGreyText("Or Login with"),
-      const SizedBox(height: 10),
-      ElevatedButton(
-        onPressed: () {
-          // Lógica para iniciar sesión con Google aquí
-        },
-        style: ElevatedButton.styleFrom(
-          primary: Colors.white,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20.0),
+  Widget _buildOtherLogin() {
+    return Column(
+      children: [
+        _buildGreyText("Or Login with"),
+        const SizedBox(height: 10),
+        ElevatedButton(
+          onPressed: () {
+            // Lógica para iniciar sesión con Google aquí
+          },
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20.0),
+            ),
+          ),
+          child: Padding(
+            padding:
+                const EdgeInsets.symmetric(vertical: 16.0, horizontal: 32.0),
+            child: Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset("assets/images/google.png", width: 30, height: 30),
+                const SizedBox(width: 10),
+                const Text(
+                  "Sign in with Google",
+                  style: TextStyle(color: Colors.black),
+                ),
+              ],
+            ),
           ),
         ),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 32.0),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Image.asset("assets/imagenes/google.png", width: 30, height: 30),
-              const SizedBox(width: 10),
-              Text(
-                "Sign in with Google",
-                style: TextStyle(color: Colors.black),
-              ),
-            ],
-          ),
-        ),
-      ),
-      const SizedBox(height: 10),  
-      Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Tab(icon: Image.asset("assets/imagenes/facebook.png")),
-          Tab(icon: Image.asset("assets/imagenes/twitter.png")),
-          Tab(icon: Image.asset("assets/imagenes/github.png")),
-        ],
-      ),
-    ],
-  );
-}
-
+      ],
+    );
+  }
 }
