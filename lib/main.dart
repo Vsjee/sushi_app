@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:sushi_app/login_page.dart';
 import 'package:sushi_app/intro_page.dart';
 
-
 void main() {
   runApp(const MyApp());
 }
@@ -17,10 +16,10 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(primarySwatch: Colors.deepPurple),
       debugShowCheckedModeBanner: false,
-      home: IntroPage(),
+      home: const IntroPage(),
       routes: {
-        '/intropage':(context) => const IntroPage(),
-        '/loginpage':(context) => const LoginPage(),
+        '/intropage': (context) => const IntroPage(),
+        '/loginpage': (context) => const LoginPage(),
       },
     );
   }
