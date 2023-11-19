@@ -167,6 +167,11 @@ class _LoginPageState extends State<LoginPage> {
       ),
       child: const Text("LOGIN"),
     );
+    // ignore: dead_code
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const LoginPage()),
+    );
   }
 
   Widget _buildOtherLogin() {
