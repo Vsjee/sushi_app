@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sushi_app/modules/private/home/home_screen.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -157,6 +158,10 @@ class _LoginPageState extends State<LoginPage> {
       onPressed: () {
         debugPrint("Email : ${emailController.text}");
         debugPrint("Password : ${passwordController.text}");
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const HomeScreen()),
+        );
       },
       style: ElevatedButton.styleFrom(
         shape: const StadiumBorder(),

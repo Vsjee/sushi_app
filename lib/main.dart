@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sushi_app/intro_page.dart';
 import 'package:sushi_app/login_page.dart';
-import 'package:sushi_app/menu_page.dart';
+import 'package:sushi_app/modules/private/home/home_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    const ProviderScope(
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -23,7 +27,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/intropage': (context) => const IntroPage(),
         '/loginpage': (context) => const LoginPage(),
-        '/MenuPage': (context) => const MenuPage()
+        '/MenuPage': (context) => const HomeScreen()
       },
     );
   }
