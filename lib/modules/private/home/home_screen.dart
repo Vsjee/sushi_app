@@ -24,12 +24,13 @@ class HomeScreen extends ConsumerWidget {
     return randomElements;
   }
 
-  void _openAddExpenses(
+  void _openSushiList(
     BuildContext context,
     List<Sushi> sushis,
   ) {
     showModalBottomSheet(
       context: context,
+      backgroundColor: Colors.transparent,
       isScrollControlled: true,
       builder: (ctx) {
         return SushiList(
@@ -153,7 +154,7 @@ class HomeScreen extends ConsumerWidget {
                     ),
                     TextButton(
                       onPressed: () {
-                        _openAddExpenses(context, data);
+                        _openSushiList(context, data);
                       },
                       child: const Text('See more'),
                     ),
