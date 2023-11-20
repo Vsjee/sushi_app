@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sushi_app/core/service/fire_auth.dart';
-import 'package:sushi_app/login_page.dart';
+import 'package:sushi_app/intro_page.dart';
 
 class HomeDrawer extends StatelessWidget {
   const HomeDrawer({super.key});
@@ -53,13 +53,13 @@ class HomeDrawer extends StatelessWidget {
           ),
           TextButton(
             onPressed: () async {
-              Navigator.pop(context);
+              // Navigator.pop(context);
               await FireAuthService().signOut();
-
               // ignore: use_build_context_synchronously
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => const LoginPage()),
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(
+                  builder: (context) => const IntroPage(),
+                ),
               );
             },
             child: const Row(

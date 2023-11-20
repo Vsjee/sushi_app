@@ -1,6 +1,6 @@
+import 'package:cool_alert/cool_alert.dart';
 import 'package:flutter/material.dart';
 import 'package:sushi_app/core/service/fire_auth.dart';
-import 'package:sushi_app/modules/private/home/home_screen.dart';
 import 'package:sushi_app/sing_up.dart';
 
 class LoginPage extends StatefulWidget {
@@ -158,13 +158,21 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget _buildLoginButton() {
     return ElevatedButton(
-      onPressed: () {
-        debugPrint("Email : ${emailController.text}");
-        debugPrint("Password : ${passwordController.text}");
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const HomeScreen()),
-        );
+      onPressed: () async {
+        if (emailController.text.isNotEmpty &&
+            passwordController.text.isNotEmpty) {
+          await FireAuthService().signinEmailAndPassword(
+            context,
+            emailController.text,
+            passwordController.text,
+          );
+        } else {
+          CoolAlert.show(
+            context: context,
+            type: CoolAlertType.error,
+            text: "Error email/password, try again😥",
+          );
+        }
       },
       style: ElevatedButton.styleFrom(
         shape: const StadiumBorder(),
@@ -217,7 +225,7 @@ class _LoginPageState extends State<LoginPage> {
         const SizedBox(height: 10),
         ElevatedButton(
           onPressed: () {
-            FireAuthService().signInWithGoogle();
+            FireAuthService().signInWithGoogle(context);
           },
           style: ElevatedButton.styleFrom(
             elevation: 10,

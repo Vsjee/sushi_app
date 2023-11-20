@@ -1,4 +1,6 @@
+import 'package:cool_alert/cool_alert.dart';
 import 'package:flutter/material.dart';
+import 'package:sushi_app/core/service/fire_auth.dart';
 
 class Singup extends StatefulWidget {
   const Singup({super.key});
@@ -25,7 +27,7 @@ class SingupState extends State<Singup> {
       decoration: BoxDecoration(
         color: myColor,
         image: DecorationImage(
-          image: const AssetImage("assets/images/bg.png"),
+          image: const AssetImage("assets/images/bg.jpg"),
           fit: BoxFit.cover,
           colorFilter:
               ColorFilter.mode(myColor.withOpacity(0.2), BlendMode.dstATop),
@@ -49,7 +51,7 @@ class SingupState extends State<Singup> {
         children: [
           Icon(
             Icons.location_on_sharp,
-            size: 100,
+            size: 60,
             color: Colors.white,
           ),
           Text(
@@ -134,17 +136,38 @@ class SingupState extends State<Singup> {
 
   Widget _buildLoginButton() {
     return ElevatedButton(
-      onPressed: () {
-        debugPrint("Username: ${userNameController.text}");
-        debugPrint("Email : ${emailController.text}");
-        debugPrint("Password : ${passwordController.text}");
-        debugPrint("Confirm Password: ${confirmPasswordController.text}");
+      onPressed: () async {
+        if (userNameController.text.isNotEmpty &&
+            emailController.text.isNotEmpty &&
+            passwordController.text.isNotEmpty &&
+            confirmPasswordController.text.isNotEmpty) {
+          if (passwordController.text == confirmPasswordController.text) {
+            await FireAuthService().createAccount(
+              context,
+              emailController.text,
+              confirmPasswordController.text,
+            );
+          } else {
+            CoolAlert.show(
+              context: context,
+              type: CoolAlertType.error,
+              text: "Error password/confirm password not the same😥",
+            );
+          }
+        } else {
+          CoolAlert.show(
+            context: context,
+            type: CoolAlertType.error,
+            text: "Error name/email/password or confirm password went wrong 😥",
+          );
+        }
       },
       style: ElevatedButton.styleFrom(
         shape: const StadiumBorder(),
         elevation: 20,
         shadowColor: myColor,
         minimumSize: const Size.fromHeight(60),
+        backgroundColor: const Color.fromARGB(255, 76, 0, 255),
       ),
       child: const Text("SING UP"),
     );
