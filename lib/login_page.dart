@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sushi_app/core/service/fire_auth.dart';
 import 'package:sushi_app/modules/private/home/home_screen.dart';
+import 'package:sushi_app/sing_up.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -108,6 +109,7 @@ class _LoginPageState extends State<LoginPage> {
         _buildLoginButton(),
         const SizedBox(height: 20),
         _buildOtherLogin(),
+        _buildSignUpLink(),
       ],
     );
   }
@@ -178,7 +180,33 @@ class _LoginPageState extends State<LoginPage> {
       context,
       MaterialPageRoute(builder: (context) => const LoginPage()),
     );
+
   }
+
+     Widget _buildSignUpLink() {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: <Widget>[
+      Text("Don't have an account?"),
+      GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => singup()),
+          );
+        },
+        child: Text(
+          " Sign up",
+          style: TextStyle(
+            fontWeight: FontWeight.w600,
+            fontSize: 18,
+            color: Color.fromARGB(255, 7, 7, 7), 
+          ),
+        ),
+      ),
+    ],
+  );
+}
 
   Widget _buildOtherLogin() {
     return Column(
