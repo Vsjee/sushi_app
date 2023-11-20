@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 import 'package:sushi_app/components/button.dart';
-import 'package:sushi_app/theme/colors.dart';
+import 'package:sushi_app/theme/app_colors.dart';
 
 class MenuPage extends StatefulWidget {
   const MenuPage({super.key});
@@ -37,6 +37,7 @@ class _MenuPageState extends State<MenuPage> {
       });
     } else {
       // Si la solicitud no es exitosa, maneja el error aquí.
+      // ignore: avoid_print
       print('Error al cargar los datos: ${response.statusCode}');
     }
   }
