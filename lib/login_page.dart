@@ -50,7 +50,7 @@ class _LoginPageState extends State<LoginPage> {
         children: [
           Icon(
             Icons.location_on_sharp,
-            size: 100,
+            size: 60,
             color: Colors.white,
           ),
           Text(
@@ -180,33 +180,35 @@ class _LoginPageState extends State<LoginPage> {
       context,
       MaterialPageRoute(builder: (context) => const LoginPage()),
     );
-
   }
 
-     Widget _buildSignUpLink() {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.center,
-    children: <Widget>[
-      Text("Don't have an account?"),
-      GestureDetector(
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => singup()),
-          );
-        },
-        child: Text(
-          " Sign up",
-          style: TextStyle(
-            fontWeight: FontWeight.w600,
-            fontSize: 18,
-            color: Color.fromARGB(255, 7, 7, 7), 
+  Widget _buildSignUpLink() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 20),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          const Text("Don't have an account?"),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const Singup()),
+              );
+            },
+            child: const Text(
+              " Sign up",
+              style: TextStyle(
+                fontWeight: FontWeight.w600,
+                fontSize: 18,
+                color: Color.fromARGB(255, 7, 7, 7),
+              ),
+            ),
           ),
-        ),
+        ],
       ),
-    ],
-  );
-}
+    );
+  }
 
   Widget _buildOtherLogin() {
     return Column(
