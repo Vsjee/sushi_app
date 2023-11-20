@@ -144,7 +144,7 @@ class FoodDetails extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            '${element.calories.toString()} calorias',
+                            '${element.calories.toString()} calories',
                             style: TextStyle(
                               color: Colors.grey[700],
                               fontWeight: FontWeight.bold,
