@@ -124,7 +124,9 @@ class SingupState extends State<Singup> {
     return TextField(
       controller: controller,
       decoration: InputDecoration(
-        suffixIcon: isPassword ? Icon(Icons.remove_red_eye) : Icon(Icons.done),
+        suffixIcon: isPassword
+            ? const Icon(Icons.remove_red_eye)
+            : const Icon(Icons.done),
       ),
       obscureText: isPassword,
     );
@@ -148,16 +150,16 @@ class SingupState extends State<Singup> {
     );
   }
 
-  Widget _buildBackgroundContainer() {
-    return Container(
-      padding: EdgeInsets.only(top: 100),
-      height: 200,
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: const AssetImage("assets/images/encrypt.png"),
-          fit: BoxFit.fitHeight,
-        ),
-      ),
-    );
-  }
+  // Widget _buildBackgroundContainer() {
+  //   return Container(
+  //     padding: const EdgeInsets.only(top: 100),
+  //     height: 200,
+  //     decoration: const BoxDecoration(
+  //       image: DecorationImage(
+  //         image: AssetImage("assets/images/encrypt.png"),
+  //         fit: BoxFit.fitHeight,
+  //       ),
+  //     ),
+  //   );
+  // }
 }
