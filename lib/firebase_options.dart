@@ -63,7 +63,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '865123937887',
     projectId: 'sushi-af5f9',
     storageBucket: 'sushi-af5f9.appspot.com',
-    iosClientId: '865123937887-mtquvf0qtg681thp7drhioavilbieeal.apps.googleusercontent.com',
+    iosClientId:
+        '865123937887-mtquvf0qtg681thp7drhioavilbieeal.apps.googleusercontent.com',
     iosBundleId: 'com.example.sushiApp',
   );
 }
