@@ -12,7 +12,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  
+
   runApp(
     const ProviderScope(
       child: MyApp(),
@@ -35,11 +35,9 @@ class MyApp extends StatelessWidget {
       routes: {
         '/intropage': (context) => const IntroPage(),
         '/loginpage': (context) => const LoginPage(),
-        '/singup': (context) => const singup(),
+        '/singup': (context) => const Singup(),
         '/MenuPage': (context) => const HomeScreen()
       },
     );
   }
 }
-
-

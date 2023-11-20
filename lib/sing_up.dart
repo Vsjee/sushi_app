@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class singup extends StatefulWidget {
-  const singup({super.key});
+class Singup extends StatefulWidget {
+  const Singup({super.key});
 
   @override
-  State<singup> createState() => _singupState();
+  State<Singup> createState() => SingupState();
 }
 
-class _singupState extends State<singup> {
+class SingupState extends State<Singup> {
   late Color myColor;
   late Size mediaSize;
   TextEditingController userNameController = TextEditingController();
@@ -27,7 +27,8 @@ class _singupState extends State<singup> {
         image: DecorationImage(
           image: const AssetImage("assets/images/bg.png"),
           fit: BoxFit.cover,
-          colorFilter: ColorFilter.mode(myColor.withOpacity(0.2), BlendMode.dstATop),
+          colorFilter:
+              ColorFilter.mode(myColor.withOpacity(0.2), BlendMode.dstATop),
         ),
       ),
       child: Scaffold(
@@ -101,12 +102,12 @@ class _singupState extends State<singup> {
         _buildGreyText("Password"),
         _buildInputField(passwordController, isPassword: true),
         const SizedBox(height: 20),
-         _buildGreyText("Confirm Password"),
-        _buildInputField(confirmPasswordController, isPassword: true, isConfirmPassword: true),
+        _buildGreyText("Confirm Password"),
+        _buildInputField(confirmPasswordController,
+            isPassword: true, isConfirmPassword: true),
         const SizedBox(height: 20),
         _buildLoginButton(),
         const SizedBox(height: 20),
-        
       ],
     );
   }
@@ -119,16 +120,17 @@ class _singupState extends State<singup> {
   }
 
   Widget _buildInputField(TextEditingController controller,
-      {isPassword = false, isUserName = false,isConfirmPassword = false}) {
+      {isPassword = false, isUserName = false, isConfirmPassword = false}) {
     return TextField(
       controller: controller,
       decoration: InputDecoration(
-        suffixIcon: isPassword ? Icon(Icons.remove_red_eye) : Icon(Icons.done),
+        suffixIcon: isPassword
+            ? const Icon(Icons.remove_red_eye)
+            : const Icon(Icons.done),
       ),
       obscureText: isPassword,
     );
   }
-
 
   Widget _buildLoginButton() {
     return ElevatedButton(
@@ -137,7 +139,6 @@ class _singupState extends State<singup> {
         debugPrint("Email : ${emailController.text}");
         debugPrint("Password : ${passwordController.text}");
         debugPrint("Confirm Password: ${confirmPasswordController.text}");
-
       },
       style: ElevatedButton.styleFrom(
         shape: const StadiumBorder(),
@@ -147,22 +148,18 @@ class _singupState extends State<singup> {
       ),
       child: const Text("SING UP"),
     );
-       
   }
 
-  Widget _buildBackgroundContainer() {
-    return Container(
-      padding: EdgeInsets.only(top: 100),
-      height: 200,
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: const AssetImage("assets/images/encrypt.png"),
-          fit: BoxFit.fitHeight,
-        ),
-      ),
-    );
-  }
+  // Widget _buildBackgroundContainer() {
+  //   return Container(
+  //     padding: const EdgeInsets.only(top: 100),
+  //     height: 200,
+  //     decoration: const BoxDecoration(
+  //       image: DecorationImage(
+  //         image: AssetImage("assets/images/encrypt.png"),
+  //         fit: BoxFit.fitHeight,
+  //       ),
+  //     ),
+  //   );
+  // }
 }
-
-
-
