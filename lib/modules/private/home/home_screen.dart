@@ -5,6 +5,7 @@ import 'package:sushi_app/components/button.dart';
 import 'package:sushi_app/components/food_tile.dart';
 import 'package:sushi_app/core/models/sushi_model.dart';
 import 'package:sushi_app/core/service/sushi_service.dart';
+import 'package:sushi_app/modules/private/home/widgets/home_drawer/home_drawer.dart';
 import 'package:sushi_app/modules/private/home/widgets/sushi_list/sushi_list.dart';
 import 'package:sushi_app/theme/app_colors.dart';
 
@@ -46,13 +47,11 @@ class HomeScreen extends ConsumerWidget {
 
     return Scaffold(
       backgroundColor: Colors.grey[100],
+      drawer: const HomeDrawer(),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         foregroundColor: Colors.grey[800],
         elevation: 0,
-        leading: const Icon(
-          Icons.menu,
-        ),
         title: Center(
           child: Text(
             'Tokyo',
