@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sushi_app/core/service/fire_auth.dart';
 import 'package:sushi_app/modules/private/home/home_screen.dart';
 
 class LoginPage extends StatefulWidget {
@@ -186,7 +187,7 @@ class _LoginPageState extends State<LoginPage> {
         const SizedBox(height: 10),
         ElevatedButton(
           onPressed: () {
-            // Lógica para iniciar sesión con Google aquí
+            FireAuthService().signInWithGoogle();
           },
           style: ElevatedButton.styleFrom(
             elevation: 10,
