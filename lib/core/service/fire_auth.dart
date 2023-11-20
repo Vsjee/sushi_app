@@ -85,6 +85,9 @@ class FireAuthService {
 final authInstanceProvider =
     Provider<FirebaseAuth>((ref) => FirebaseAuth.instance);
 
+final authUserProvider =
+    Provider<User?>((ref) => FirebaseAuth.instance.currentUser);
+
 final authProvider = StreamProvider<User?>((ref) {
   return FirebaseAuth.instance.authStateChanges();
 });

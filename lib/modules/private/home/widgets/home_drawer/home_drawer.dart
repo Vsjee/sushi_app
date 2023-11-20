@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sushi_app/core/service/fire_auth.dart';
 import 'package:sushi_app/intro_page.dart';
 
-class HomeDrawer extends StatelessWidget {
+class HomeDrawer extends ConsumerWidget {
   const HomeDrawer({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    var userEmail = 'user email';
+
+    var currUser = ref.watch(authUserProvider);
+
+    if (currUser != null) {
+      userEmail = currUser.email!;
+    }
+
     return Container(
       decoration: const BoxDecoration(color: Colors.white),
       child: ListView(
@@ -24,12 +33,12 @@ class HomeDrawer extends StatelessWidget {
             ),
             child: Stack(
               children: [
-                const Positioned(
+                Positioned(
                   bottom: 0,
                   left: 0,
                   child: Text(
-                    'User name',
-                    style: TextStyle(
+                    userEmail,
+                    style: const TextStyle(
                       color: Colors.white,
                       fontSize: 20,
                     ),
